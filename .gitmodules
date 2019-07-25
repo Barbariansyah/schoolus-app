@@ -1,0 +1,3 @@
+[submodule "schoolus"]
+	path = schoolus
+	url = git@github.com:wirasuta/schoolus.git
