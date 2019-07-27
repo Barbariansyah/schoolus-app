@@ -27,13 +27,13 @@ const Cardlist = () => {
       uri: 'https://source.unsplash.com/random/200x400',
       title: 'Voucher Title',
       provider: 'Voucher Provider'
-    }
+    },
   ]
 
   return (
     <>
       {texts.map((el, id) => (
-        <Voucher imgUri={el.uri} title={el.title} provider={el.provider} key={id} />
+          <Voucher imgUri={el.uri} title={el.title} provider={el.provider} key={id}/>
       ))}
     </>
   )
