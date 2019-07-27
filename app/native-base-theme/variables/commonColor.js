@@ -60,54 +60,54 @@ export default {
   buttonFontFamily: platform === PLATFORM.IOS ? 'System' : 'Roboto_medium',
   buttonDisabledBg: '#b5b5b5',
   buttonPadding: 6,
-  get buttonPrimaryBg() {
+  get buttonPrimaryBg () {
     return this.brandPrimary
   },
-  get buttonPrimaryColor() {
+  get buttonPrimaryColor () {
     return this.inverseTextColor
   },
-  get buttonInfoBg() {
+  get buttonInfoBg () {
     return this.brandInfo
   },
-  get buttonInfoColor() {
+  get buttonInfoColor () {
     return this.inverseTextColor
   },
-  get buttonSuccessBg() {
+  get buttonSuccessBg () {
     return this.brandSuccess
   },
-  get buttonSuccessColor() {
+  get buttonSuccessColor () {
     return this.inverseTextColor
   },
-  get buttonDangerBg() {
+  get buttonDangerBg () {
     return this.brandDanger
   },
-  get buttonDangerColor() {
+  get buttonDangerColor () {
     return this.inverseTextColor
   },
-  get buttonWarningBg() {
+  get buttonWarningBg () {
     return this.brandWarning
   },
-  get buttonWarningColor() {
+  get buttonWarningColor () {
     return this.inverseTextColor
   },
-  get buttonTextSize() {
+  get buttonTextSize () {
     return platform === PLATFORM.IOS
       ? this.fontSizeBase * 1.1
       : this.fontSizeBase - 1
   },
-  get buttonTextSizeLarge() {
+  get buttonTextSizeLarge () {
     return this.fontSizeBase * 1.5
   },
-  get buttonTextSizeSmall() {
+  get buttonTextSizeSmall () {
     return this.fontSizeBase * 0.8
   },
-  get borderRadiusLarge() {
+  get borderRadiusLarge () {
     return this.fontSizeBase * 3.8
   },
-  get iconSizeLarge() {
+  get iconSizeLarge () {
     return this.iconFontSize * 1.5
   },
-  get iconSizeSmall() {
+  get iconSizeSmall () {
     return this.iconFontSize * 0.6
   },
 
@@ -152,13 +152,13 @@ export default {
   DefaultFontSize: 16,
   fontFamily: platform === PLATFORM.IOS ? 'System' : 'Roboto',
   fontSizeBase: 15,
-  get fontSizeH1() {
+  get fontSizeH1 () {
     return this.fontSizeBase * 1.8
   },
-  get fontSizeH2() {
+  get fontSizeH2 () {
     return this.fontSizeBase * 1.6
   },
-  get fontSizeH3() {
+  get fontSizeH3 () {
     return this.fontSizeBase * 1.4
   },
 
@@ -186,12 +186,12 @@ export default {
   toolbarBtnTextColor: platform === PLATFORM.IOS ? '#007aff' : '#fff',
   iosStatusbar: 'dark-content',
   toolbarDefaultBorder: platform === PLATFORM.IOS ? '#a7a6ab' : '#907AD6',
-  get statusBarColor() {
+  get statusBarColor () {
     return color(this.toolbarDefaultBg)
       .darken(0.2)
       .hex()
   },
-  get darkenHeader() {
+  get darkenHeader () {
     return color(this.tabBgColor)
       .darken(0.03)
       .hex()
@@ -208,10 +208,10 @@ export default {
   inputSuccessBorderColor: '#2b8339',
   inputErrorBorderColor: '#ed2f2f',
   inputHeightBase: 50,
-  get inputColor() {
+  get inputColor () {
     return this.textColor
   },
-  get inputColorPlaceholder() {
+  get inputColorPlaceholder () {
     return '#575757'
   },
 
@@ -240,7 +240,7 @@ export default {
   radioBtnSize: platform === PLATFORM.IOS ? 25 : 23,
   radioSelectedColorAndroid: '#907AD6',
   radioBtnLineHeight: platform === PLATFORM.IOS ? 29 : 24,
-  get radioColor() {
+  get radioColor () {
     return this.brandPrimary
   },
 
@@ -271,7 +271,7 @@ export default {
   textColor: '#000',
   inverseTextColor: '#fff',
   noteFontSize: 14,
-  get defaultTextColor() {
+  get defaultTextColor () {
     return this.textColor
   },
 

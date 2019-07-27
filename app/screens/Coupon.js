@@ -14,11 +14,11 @@ class Coupon extends React.Component {
     return (
       <Base>
         <Header>
-          <Left />
-          <Body>
-            <Title>Coupon</Title>
+        <Left style={{flex: 1}}></Left>
+          <Body style={{flex: 1, alignItems:'center'}}>
+            <Title>Voucher</Title>
           </Body>
-          <Right />
+          <Right style={{flex: 1}}></Right>
         </Header>
         <Content>
           <Segments />

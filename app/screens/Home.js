@@ -1,10 +1,13 @@
 import React from 'react'
 import { StyleSheet, Image, Text } from 'react-native'
-import { Header, Content, Left, Body, Right, Title } from 'native-base'
+import { Header, Content, Left, Body, Right, Title, H1, View } from 'native-base'
 import { Col, Row, Grid } from 'react-native-easy-grid';
+import { withNavigation } from 'react-navigation';
 
 import Base from './template/Base'
 import HomeCard from '../components/HomeCard'
+import FocusButton from '../components/FocusButton'
+import HomeList from '../components/HomeList'
 
 
 const styles = StyleSheet.create({
@@ -22,22 +25,28 @@ class Home extends React.Component {
     return (
       <Base>
         <Header>
-          <Left />
-          <Body>
+          <Left style={{flex: 1}}></Left>
+          <Body style={{flex: 1, alignItems:'center'}}>
             <Title>Home</Title>
           </Body>
-          <Right />
+          <Right style={{flex: 1}}></Right>
         </Header>
         <Content>
          <Grid>
-            <Row>
+            <Row style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
               <HomeCard/>
             </Row>
             <Row style={{justifyContent:'center'}}>
-              <Text>Good Evening, Tude</Text>
+              <H1>Good Evening, Tude</H1>
             </Row>
             <Row>
-              <Image source={require('../assets/home-girl.png')} style={{height: 300, width: 150, flex: 1}}/> 
+              <Image source={require('../assets/home-girl.png')} style={{height: 270, width:150, flex: 1}}/> 
+            </Row>
+            <Row style={{paddingHorizontal: 80}}>
+              <FocusButton/>
+            </Row>
+            <Row>
+              <HomeList/>
             </Row>
           </Grid>
         </Content>

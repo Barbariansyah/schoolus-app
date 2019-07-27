@@ -7,7 +7,7 @@ import Navbar from '../../navigation/components/Footer'
 const Base = ({ children }) => {
   return (
     <>
-      <StatusBar hidden={true} />
+      <StatusBar hidden />
       <Container>{children}</Container>
       <Navbar />
     </>
