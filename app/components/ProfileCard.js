@@ -10,7 +10,7 @@ import {
 } from 'native-base'
 
 export default class ProfileCard extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       profileImgUri: this.props.imgUri,
@@ -20,7 +20,7 @@ export default class ProfileCard extends Component {
     }
   }
 
-  render () {
+  render() {
     const { profileImgUri, username, grade, school } = this.state
 
     return (
@@ -31,7 +31,7 @@ export default class ProfileCard extends Component {
               <Thumbnail source={{ uri: profileImgUri }} />
               <Body>
                 <Text style={{ color: '#fff' }}>{username}</Text>
-                <Text style={{ color: '#fff' }}>{grade} Grade </Text>
+                <Text style={{ color: '#fff' }}>{grade}th Grade </Text>
                 <Text style={{ color: '#fff' }}>{school}</Text>
               </Body>
             </Left>

@@ -13,7 +13,7 @@ export const GET_VOUCHERS = gql`
 `
 
 export const GET_OWNED_VOUCHERS = gql`
-  query Voucher($voucher_ids: [MongoID]!) {
+  query getOwnedVoucher($voucher_ids: [MongoID]!) {
     voucherByIds(_ids: $voucher_ids) {
       _id
       name
@@ -25,7 +25,7 @@ export const GET_OWNED_VOUCHERS = gql`
 `
 
 export const GET_VOUCHER_DETAIL = gql`
-  query Voucher($id: MongoID!) {
+  query getVoucher($id: MongoID!) {
     voucherById(_id: $id) {
       name
       vendor
@@ -40,7 +40,7 @@ export const GET_VOUCHER_DETAIL = gql`
 `
 
 export const PURCHASE_VOUCHER = gql`
-  mutation User($user_id: String!, $voucher_id: String!) {
+  mutation purchaseVoucher($user_id: String!, $voucher_id: String!) {
     userPurchaseVoucher(user_id: $user_id, voucher_id: $voucher_id) {
       points
       own_voucher

@@ -31,7 +31,7 @@ export default class SegmentOutsideHeaderExample extends Component {
 
   render() {
     return (
-      <Container>
+      <Content>
         <Header hasSegment>
           <Left />
           <Body>
@@ -55,7 +55,7 @@ export default class SegmentOutsideHeaderExample extends Component {
           <Right />
         </Header>
         <Content padder>{this._renderComponent()}</Content>
-      </Container>
+      </Content>
     )
   }
 }

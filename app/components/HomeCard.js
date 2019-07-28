@@ -12,13 +12,16 @@ import {
 } from 'native-base'
 import { FontAwesome } from '@expo/vector-icons'
 import { withNavigation } from 'react-navigation'
+import { compose } from 'react-apollo'
+
+import withUserPurchase from '../lib/withUserPurchase'
 
 class HomeCard extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      points: 0
+      points: this.props.user.points
     }
   }
 
@@ -66,4 +69,7 @@ class HomeCard extends Component {
   }
 }
 
-export default withNavigation(HomeCard)
+export default compose(
+  withUserPurchase,
+  withNavigation
+)(HomeCard)

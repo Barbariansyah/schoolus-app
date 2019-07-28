@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AsyncStorage, Image, View } from 'react-native'
-import { Button, Text } from 'native-base'
+import { Content, Button, Text, Item, Label, Input, Form } from 'native-base'
 
 import Base from './template/Base'
 
@@ -20,18 +20,54 @@ export default class Login extends Component {
 
   render() {
     return (
-      <Base>
-        <View style={{ backgroundColor: '#007AFF', flex: 1 }}>
+      <Content style={{ backgroundColor: '#007aff' }}>
+        <View
+          style={{
+            alignItems: 'center',
+            alignContent: 'center',
+            paddingTop: 80,
+            paddingBottom: 40
+          }}
+        >
           <Image
             source={require('../assets/login.jpg')}
-            style={{ height: 100, width: 150, flex: 1 }}
+            style={{ height: 170, width: 200 }}
           />
-
-          <Button primary onPress={this.signIn}>
-            <Text>Sign In!</Text>
-          </Button>
         </View>
-      </Base>
+        <Form style={{ flex: 1, margin: 20 }}>
+          <Item
+            rounded
+            style={{
+              backgroundColor: '#fff',
+              marginVertical: 5,
+              paddingHorizontal: 10
+            }}
+          >
+            <Input placeholder='Username' />
+          </Item>
+          <Item
+            rounded
+            style={{
+              backgroundColor: '#fff',
+              marginVertical: 5,
+              paddingHorizontal: 10
+            }}
+          >
+            <Input secureTextEntry={true} placeholder='Password' />
+          </Item>
+          <Button
+            primary
+            onPress={this.signIn}
+            style={{
+              justifyContent: 'center',
+              marginVertical: 20,
+              backgroundColor: '#fff'
+            }}
+          >
+            <Text style={{ color: '#007aff' }}>Sign In</Text>
+          </Button>
+        </Form>
+      </Content>
     )
   }
 }

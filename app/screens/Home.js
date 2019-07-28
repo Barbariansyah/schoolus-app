@@ -12,6 +12,7 @@ import {
   Grid
 } from 'native-base'
 
+import withUserPurchase from '../lib/withUserPurchase'
 import Base from './template/Base'
 import HomeCard from '../components/HomeCard'
 import FocusButton from '../components/FocusButton'
@@ -22,7 +23,7 @@ class Home extends React.Component {
     header: null
   }
 
-  render () {
+  render() {
     return (
       <Base>
         <Header>
@@ -38,7 +39,7 @@ class Home extends React.Component {
               <HomeCard />
             </Row>
             <Row style={{ justifyContent: 'center' }}>
-              <H1>Good Evening, Tude</H1>
+              <H1>Hello, Tude</H1>
             </Row>
             <Row>
               <Image
@@ -59,4 +60,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default withUserPurchase(Home)

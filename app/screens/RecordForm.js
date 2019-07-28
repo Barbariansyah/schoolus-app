@@ -51,8 +51,9 @@ class RecordForm extends React.Component {
                 style={{ height: 270, width: 150, flex: 1 }}
               />
             </Row>
-            <RecordSegments />
-            <Row />
+            <Row>
+              <RecordSegments />
+            </Row>
           </Grid>
         </Content>
       </Base>
