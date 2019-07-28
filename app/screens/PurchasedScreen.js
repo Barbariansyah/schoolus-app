@@ -18,7 +18,26 @@ class PurchasedScreen extends React.Component {
     }
 
     render() {
+      return(
         <Base>
+          <Header>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.goBack()}>
+              <Icon style={{ color: '#000' }} name='arrow-back' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Purchase Successful</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Grid>
+          <Row>
+            <H1>You've successfuly purchased a voucher</H1>
+          </Row>
+        </Grid>
         </Base>
+      )
+        
     }
   }
