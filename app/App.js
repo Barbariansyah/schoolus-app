@@ -14,18 +14,18 @@ import platform from './native-base-theme/variables/platform'
 import AppNavigator from './navigation/navigation'
 
 const httpLink = createHttpLink({
-  uri: '/graphql'
+  uri: '/graphql',
 })
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   // TODO: change to local storage after login functionality
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZDNiY2Y2YmFiYmY2MjJmZmQxNjA2MjkiLCJ1c2VyTmFtZSI6InRlc3Q0NTYiLCJpYXQiOjE1NjQyNDQ2MzMsImV4cCI6MTU2NjgzNjYzM30.JQLLVMghvRFCmwrs1A8EoiztfWypCPzqbCGF6cWVsDA'
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZDNiY2Y2YmFiYmY2MjJmZmQxNjA2MjkiLCJ1c2VyTmFtZSI6InRlc3Q0NTYiLCJpYXQiOjE1NjQyNDQ2MzMsImV4cCI6MTU2NjgzNjYzM30.JQLLVMghvRFCmwrs1A8EoiztfWypCPzqbCGF6cWVsDA';
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : ''
+      authorization: token ? `Bearer ${token}` : "",
     }
   }
 })
@@ -36,14 +36,14 @@ const client = new ApolloClient({
 })
 
 export default class App extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       isReady: false
     }
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
@@ -52,7 +52,7 @@ export default class App extends React.Component {
     this.setState({ isReady: true })
   }
 
-  render () {
+  render() {
     if (!this.state.isReady) {
       return <AppLoading />
     }
