@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Left, Body, Right, H1, H2 } from 'native-base'
+import {
+  Content,
+  Card,
+  CardItem,
+  Text,
+  Button,
+  Left,
+  Body,
+  Right,
+  H1
+} from 'native-base'
 import { FontAwesome } from '@expo/vector-icons'
 import { withNavigation } from 'react-navigation'
 
@@ -39,7 +48,10 @@ class HomeCard extends Component {
               </Button>
             </Left>
             <Right>
-              <Button transparent onPress={() => this.props.navigation.navigate('Coupon')}>
+              <Button
+                transparent
+                onPress={() => this.props.navigation.navigate('Coupon')}
+              >
                 <FontAwesome active name='ticket' />
                 <Text>See {'\n'}Vouchers</Text>
               </Button>

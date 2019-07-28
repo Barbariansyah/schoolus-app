@@ -1,5 +1,10 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation'
+import {
+  createStackNavigator,
+  createAppContainer,
+  createBottomTabNavigator
+} from 'react-navigation'
 
+import BottomNavbar from './components/Footer'
 import HomeScreen from '../screens/Home'
 import CouponScreen from '../screens/Coupon'
 import ProfileScreen from '../screens/Profile'
@@ -9,19 +14,37 @@ import MyReportScreen from '../screens/MyReport'
 import MyExamsScreen from '../screens/MyExams'
 import MyQuizesScreen from '../screens/MyQuizes'
 
-const AppNavigator = createStackNavigator(
+const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Coupon: CouponScreen,
-    Profile: ProfileScreen,
-    VoucherDetails: VoucherDetailsScreen,
     FocusMode: FocusModeScreen,
     MyReport: MyReportScreen,
     MyExams: MyExamsScreen,
     MyQuizes: MyQuizesScreen
   },
   {
-    initialRouteName: 'Home'
+    navigationOptions: ({ navigation }) => ({
+      tabBarVisible:
+        navigation.state.routes[navigation.state.index].routeName !==
+        'FocusMode'
+    })
+  }
+)
+
+const VoucherStack = createStackNavigator({
+  Coupon: CouponScreen,
+  VoucherDetails: VoucherDetailsScreen
+})
+
+const AppNavigator = createBottomTabNavigator(
+  {
+    Home: HomeStack,
+    Coupon: VoucherStack,
+    Profile: ProfileScreen
+  },
+  {
+    initialRouteName: 'Home',
+    tabBarComponent: BottomNavbar
   }
 )
 

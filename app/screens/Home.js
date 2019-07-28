@@ -1,52 +1,56 @@
 import React from 'react'
-import { StyleSheet, Image, Text } from 'react-native'
-import { Header, Content, Left, Body, Right, Title, H1, View } from 'native-base'
-import { Col, Row, Grid } from 'react-native-easy-grid';
-import { withNavigation } from 'react-navigation';
+import { Image } from 'react-native'
+import {
+  Header,
+  Content,
+  Left,
+  Body,
+  Right,
+  Title,
+  H1,
+  Row,
+  Grid
+} from 'native-base'
 
 import Base from './template/Base'
 import HomeCard from '../components/HomeCard'
 import FocusButton from '../components/FocusButton'
 import HomeList from '../components/HomeList'
 
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%'
-  }
-})
-
 class Home extends React.Component {
   static navigationOptions = {
     header: null
   }
 
-  render() {
+  render () {
     return (
       <Base>
         <Header>
-          <Left style={{flex: 1}}></Left>
-          <Body style={{flex: 1, alignItems:'center'}}>
+          <Left style={{ flex: 1 }} />
+          <Body style={{ flex: 1, alignItems: 'center' }}>
             <Title>Home</Title>
           </Body>
-          <Right style={{flex: 1}}></Right>
+          <Right style={{ flex: 1 }} />
         </Header>
         <Content>
-         <Grid>
+          <Grid>
             <Row style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
-              <HomeCard/>
+              <HomeCard />
             </Row>
-            <Row style={{justifyContent:'center'}}>
+            <Row style={{ justifyContent: 'center' }}>
               <H1>Good Evening, Tude</H1>
             </Row>
             <Row>
-              <Image source={require('../assets/home-girl.png')} style={{height: 270, width:150, flex: 1}}/> 
+              <Image
+                source={require('../assets/home-girl.png')}
+                style={{ height: 270, width: 150, flex: 1 }}
+              />
             </Row>
-            <Row style={{paddingHorizontal: 80}}>
-              <FocusButton/>
+            <Row style={{ paddingHorizontal: 80 }}>
+              <FocusButton />
             </Row>
             <Row>
-              <HomeList/>
+              <HomeList />
             </Row>
           </Grid>
         </Content>
