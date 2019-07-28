@@ -16,11 +16,12 @@ const VoucherList = () => {
 
         return (
           <>
-            {voucherMany.map(({ img_url, name, vendor, _id }) => (
+            {voucherMany.map(({ img_url, name, vendor, price, _id }) => (
               <Voucher
                 imgUri={img_url}
                 title={name}
                 provider={vendor}
+                price={price}
                 id={_id}
                 key={_id}
               />

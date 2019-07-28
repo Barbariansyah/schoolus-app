@@ -3,8 +3,17 @@ import { AreaChart, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
 
 class AreaChartExample extends PureComponent {
-  render () {
-    const data = [50, 40, 95, 85, 91, 35, 53, 50]
+  constructor(props) {
+    super(props)
+    this.state = {
+      dataArray: this.props.dataArray
+    }
+  }
+
+  render() {
+    const { dataArray } = this.state
+
+    const data = dataArray
 
     return (
       <AreaChart

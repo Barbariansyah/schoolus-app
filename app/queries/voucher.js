@@ -12,6 +12,18 @@ export const GET_VOUCHERS = gql`
   }
 `
 
+export const GET_OWNED_VOUCHERS = gql`
+  query Voucher($voucher_ids: [MongoID]!) {
+    voucherByIds(_ids: $voucher_ids) {
+      _id
+      name
+      vendor
+      price
+      img_url
+    }
+  }
+`
+
 export const GET_VOUCHER_DETAIL = gql`
   query Voucher($id: MongoID!) {
     voucherById(_id: $id) {

@@ -4,18 +4,19 @@ import { Card, CardItem, Text, Left, Body, Right } from 'native-base'
 import { withNavigation } from 'react-navigation'
 
 class Voucher extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       voucherImgUri: this.props.imgUri,
       title: this.props.title,
       provider: this.props.provider,
+      price: this.props.price,
       id: this.props.id
     }
   }
 
-  render () {
-    const { id, voucherImgUri, title, provider } = this.state
+  render() {
+    const { id, voucherImgUri, title, provider, price } = this.state
 
     return (
       <Card>
@@ -44,7 +45,7 @@ class Voucher extends Component {
             </Body>
           </Left>
           <Right>
-            <Text>5 Pts</Text>
+            <Text>{price} Pts</Text>
           </Right>
         </CardItem>
       </Card>

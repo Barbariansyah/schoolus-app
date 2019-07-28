@@ -1,4 +1,5 @@
 import React from 'react'
+import { Image } from 'react-native'
 import {
   Header,
   Content,
@@ -6,22 +7,29 @@ import {
   Body,
   Right,
   Title,
+  Text,
+  H1,
+  Row,
+  Grid,
   Button,
   Icon
 } from 'native-base'
-import { Row, Grid } from 'react-native-easy-grid'
 import { withNavigation } from 'react-navigation'
-
 import Base from './template/Base'
-import ReportList from '../components/ReportList'
-import ReportChart from '../components/ReportChart'
 
-class MyReport extends React.Component {
+import RecordSegments from '../components/RecordSegments'
+
+class RecordForm extends React.Component {
   static navigationOptions = {
     header: null
   }
 
   render() {
+    const { navigation } = this.props
+    const { uri, base64 } = navigation.getParam('photo', null)
+
+    console.log(navigation.getParam('photo', null))
+
     return (
       <Base>
         <Header>
@@ -31,17 +39,20 @@ class MyReport extends React.Component {
             </Button>
           </Left>
           <Body style={{ flex: 2, alignItems: 'center' }}>
-            <Title>My Report Card</Title>
+            <Title>New Record</Title>
           </Body>
           <Right style={{ flex: 1 }} />
         </Header>
         <Content>
-          <ReportChart dataArray={[50, 40, 95, 85, 91, 35, 53, 50]} />
           <Grid>
-            <Row />
             <Row>
-              <ReportList grade='11' />
+              <Image
+                source={{ uri: uri }}
+                style={{ height: 270, width: 150, flex: 1 }}
+              />
             </Row>
+            <RecordSegments />
+            <Row />
           </Grid>
         </Content>
       </Base>
@@ -49,4 +60,4 @@ class MyReport extends React.Component {
   }
 }
 
-export default withNavigation(MyReport)
+export default withNavigation(RecordForm)

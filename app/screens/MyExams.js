@@ -20,7 +20,7 @@ class MyReport extends React.Component {
     header: null
   }
 
-  render () {
+  render() {
     return (
       <Base>
         <Header>
@@ -37,7 +37,7 @@ class MyReport extends React.Component {
         <Content>
           <Grid>
             <Row>
-              <TestList />
+              <TestList grade='11' term='1st Midterm' subject='Math' />
             </Row>
           </Grid>
         </Content>

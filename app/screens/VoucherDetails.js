@@ -16,6 +16,7 @@ import { Row, Grid } from 'react-native-easy-grid'
 import { withNavigation } from 'react-navigation'
 import { Query, graphql, compose } from 'react-apollo'
 
+import withUserPurchase from '../lib/withUserPurchase'
 import { GET_VOUCHER_DETAIL, PURCHASE_VOUCHER } from '../queries/voucher'
 import Base from './template/Base'
 
@@ -25,23 +26,22 @@ class VoucherDetails extends React.Component {
   }
 
   purchaseVoucher = async ({ id, available, price }) => {
-    // TODO: Change to logged in user id
     //      Check for availibility and price
     try {
       await this.props.purchaseVoucher({
         variables: {
-          user_id: '5d3bcf6babbf622ffd160629',
+          user_id: this.props.user._id,
           voucher_id: id
         }
       })
-      alert('Success purchase voucher')
+      this.props.navigation.navigate('Purchased')
     } catch (err) {
       console.log(err)
       alert(err)
     }
   }
 
-  render () {
+  render() {
     const { navigation } = this.props
     const id = navigation.getParam('id', null)
 
@@ -107,9 +107,9 @@ class VoucherDetails extends React.Component {
                         justifyContent: 'center',
                         paddingHorizontal: 40
                       }}
-                      onPress={() =>
+                      onPress={() => {
                         this.purchaseVoucher({ id, available, price })
-                      }
+                      }}
                     >
                       <Text style={{ color: 'white' }}> Purchase Voucher </Text>
                     </Button>
@@ -135,6 +135,7 @@ class VoucherDetails extends React.Component {
 }
 
 export default compose(
+  withUserPurchase,
   withNavigation,
   graphql(PURCHASE_VOUCHER, { name: 'purchaseVoucher' })
 )(VoucherDetails)

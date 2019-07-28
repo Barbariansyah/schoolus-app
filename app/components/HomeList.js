@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons'
 import { withNavigation } from 'react-navigation'
 
 class HomeList extends Component {
-  render () {
+  render() {
     return (
       <>
         <Content>
@@ -26,17 +26,6 @@ class HomeList extends Component {
             >
               <Left>
                 <Text>My Exams</Text>
-              </Left>
-              <Right>
-                <FontAwesome name='chevron-right' />
-              </Right>
-            </ListItem>
-            <ListItem
-              button
-              onPress={() => this.props.navigation.navigate('MyQuizes')}
-            >
-              <Left>
-                <Text>My Quizes</Text>
               </Left>
               <Right>
                 <FontAwesome name='chevron-right' />

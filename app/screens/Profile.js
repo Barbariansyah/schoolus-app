@@ -6,13 +6,14 @@ import { GET_COMPLETE_USER } from '../queries/user'
 import Base from './template/Base'
 import ProfileList from '../components/ProfileList'
 import ProfileCard from '../components/ProfileCard'
+import withUserPurchase from '../lib/withUserPurchase'
 
 class Profile extends React.Component {
   static navigationOptions = {
     header: null
   }
 
-  render () {
+  render() {
     return (
       <Base>
         <Header>
@@ -24,13 +25,11 @@ class Profile extends React.Component {
         </Header>
         <Query
           query={GET_COMPLETE_USER}
-          variables={{ id: '5d3bcf6babbf622ffd160629' }}
+          variables={{ id: this.props.user._id }}
         >
           {({ loading, error, data }) => {
             if (loading) return <Text>Loading ...</Text>
             if (error) return <Text>Error! {error.message}</Text>
-
-            console.log(data)
 
             const {
               email,
@@ -67,4 +66,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile
+export default withUserPurchase(Profile)

@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
+import { AsyncStorage } from 'react-native'
 import { Content, List, ListItem, Text, Left, Right } from 'native-base'
 import { FontAwesome } from '@expo/vector-icons'
-export default class ListExample extends Component {
-  render () {
+import { withNavigation } from 'react-navigation'
+
+class ListExample extends Component {
+  signOut = async () => {
+    await AsyncStorage.clear()
+    this.props.navigation.navigate('Auth')
+  }
+
+  render() {
     const {
       fullname,
       username,
@@ -81,7 +89,7 @@ export default class ListExample extends Component {
               <FontAwesome name='chevron-right' />
             </Right>
           </ListItem>
-          <ListItem>
+          <ListItem onPress={this.signOut}>
             <Left>
               <Text style={{ color: 'red' }}>Log Out</Text>
             </Left>
@@ -91,3 +99,5 @@ export default class ListExample extends Component {
     )
   }
 }
+
+export default withNavigation(ListExample)

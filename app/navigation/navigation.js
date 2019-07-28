@@ -1,7 +1,8 @@
 import {
   createStackNavigator,
   createAppContainer,
-  createBottomTabNavigator
+  createBottomTabNavigator,
+  createSwitchNavigator
 } from 'react-navigation'
 
 import BottomNavbar from './components/Footer'
@@ -13,6 +14,11 @@ import FocusModeScreen from '../screens/FocusMode'
 import MyReportScreen from '../screens/MyReport'
 import MyExamsScreen from '../screens/MyExams'
 import MyQuizesScreen from '../screens/MyQuizes'
+import PurchasedScreen from '../screens/PurchasedScreen'
+import RecordCamera from '../screens/RecordCamera'
+import RecordForm from '../screens/RecordForm'
+import AuthLoadScreen from '../screens/AuthLoad'
+import LoginScreen from '../screens/Login'
 
 const HomeStack = createStackNavigator(
   {
@@ -20,20 +26,25 @@ const HomeStack = createStackNavigator(
     FocusMode: FocusModeScreen,
     MyReport: MyReportScreen,
     MyExams: MyExamsScreen,
-    MyQuizes: MyQuizesScreen
+    MyQuizes: MyQuizesScreen,
+    RecordCamera: RecordCamera,
+    RecordForm: RecordForm
   },
   {
     navigationOptions: ({ navigation }) => ({
       tabBarVisible:
         navigation.state.routes[navigation.state.index].routeName !==
-        'FocusMode'
+          'FocusMode' &&
+        navigation.state.routes[navigation.state.index].routeName !==
+          'RecordCamera'
     })
   }
 )
 
 const VoucherStack = createStackNavigator({
   Coupon: CouponScreen,
-  VoucherDetails: VoucherDetailsScreen
+  VoucherDetails: VoucherDetailsScreen,
+  Purchased: PurchasedScreen
 })
 
 const AppNavigator = createBottomTabNavigator(
@@ -48,4 +59,15 @@ const AppNavigator = createBottomTabNavigator(
   }
 )
 
-export default createAppContainer(AppNavigator)
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoad: AuthLoadScreen,
+      App: AppNavigator,
+      Auth: LoginScreen
+    },
+    {
+      initialRouteName: 'AuthLoad'
+    }
+  )
+)

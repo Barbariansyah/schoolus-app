@@ -5,14 +5,23 @@ import { withNavigation } from 'react-navigation'
 import ReportListItem from './ReportListItem'
 
 class ReportList extends Component {
-  render () {
+  constructor(props) {
+    super(props)
+    this.state = {
+      grade: this.props.grade
+    }
+  }
+
+  render() {
+    const { grade } = this.state
+
     return (
       <Content>
         <List>
           <ListItem itemHeader style={{ paddingBottom: 5 }}>
-            <Text>11th Grade</Text>
+            <Text>{grade}th grade</Text>
           </ListItem>
-          <ReportListItem />
+          <ReportListItem grade='11' term='1st Midterm' avg='72.4' />
         </List>
       </Content>
     )

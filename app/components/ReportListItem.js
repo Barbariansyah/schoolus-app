@@ -4,14 +4,25 @@ import { withNavigation } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
 
 class ReportListItem extends Component {
-  render () {
+  constructor(props) {
+    super(props)
+    this.state = {
+      grade: this.props.grade,
+      term: this.props.term,
+      avg: this.props.avg
+    }
+  }
+
+  render() {
+    const { grade, term, avg } = this.state
+
     return (
       <ListItem>
         <Left>
-          <Text>1st Midterm</Text>
+          <Text>{term}</Text>
         </Left>
         <Right style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Text>77.2</Text>
+          <Text>{avg}</Text>
           <View style={{ paddingHorizontal: 10 }}>
             <FontAwesome name='chevron-right' />
           </View>

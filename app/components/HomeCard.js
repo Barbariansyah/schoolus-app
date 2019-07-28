@@ -14,7 +14,7 @@ import { FontAwesome } from '@expo/vector-icons'
 import { withNavigation } from 'react-navigation'
 
 class HomeCard extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -22,7 +22,7 @@ class HomeCard extends Component {
     }
   }
 
-  render () {
+  render() {
     const { points } = this.state
 
     return (
@@ -42,7 +42,10 @@ class HomeCard extends Component {
           </CardItem>
           <CardItem>
             <Left>
-              <Button transparent>
+              <Button
+                transparent
+                onPress={() => this.props.navigation.navigate('RecordCamera')}
+              >
                 <FontAwesome active name='plus' />
                 <Text>New {'\n'}Record</Text>
               </Button>
