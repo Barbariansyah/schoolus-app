@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
-import { Container, Header, Content, List, ListItem, Text, Left, Right, Body } from 'native-base'
+import { Content, List, ListItem, Text, Left, Right } from 'native-base'
 import { FontAwesome } from '@expo/vector-icons'
 export default class ListExample extends Component {
   render () {
+    const {
+      fullname,
+      username,
+      school,
+      grade,
+      phone,
+      email
+    } = this.props.context
+
     return (
       <Content>
         <List>
@@ -10,37 +19,37 @@ export default class ListExample extends Component {
             <Left>
               <Text>Full Name</Text>
             </Left>
-            <Text>I Putu Gede</Text>
+            <Text>{fullname}</Text>
           </ListItem>
           <ListItem>
             <Left>
               <Text>Userame</Text>
             </Left>
-            <Text>Tude</Text>
+            <Text>{username}</Text>
           </ListItem>
           <ListItem>
             <Left>
               <Text>School</Text>
             </Left>
-            <Text>Labschool</Text>
+            <Text>{school}</Text>
           </ListItem>
           <ListItem>
             <Left>
               <Text>Grade</Text>
             </Left>
-            <Text>12</Text>
+            <Text>{grade}</Text>
           </ListItem>
           <ListItem>
             <Left>
               <Text>Phone</Text>
             </Left>
-            <Text>+6281220740745</Text>
+            <Text>{phone || 'Not set up'}</Text>
           </ListItem>
           <ListItem>
             <Left>
               <Text>Email</Text>
             </Left>
-            <Text>tude@gmail.com</Text>
+            <Text>{email || 'Not set up'}</Text>
           </ListItem>
           <ListItem>
             <Left>

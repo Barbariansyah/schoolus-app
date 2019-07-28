@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
-import { Container, Header, Content, Tab, Tabs } from 'native-base'
-import Cardlist from './Cardlist'
-import { Col, Row, Grid } from 'react-native-easy-grid'
+import { Tab, Tabs } from 'native-base'
+
+import VoucherList from './VoucherList'
+import OwnedVoucherList from './OwnedVoucherList'
 export default class TabsExample extends Component {
   render () {
     return (
       <Tabs>
         <Tab heading='Browse'>
-          <Cardlist />
+          <VoucherList />
         </Tab>
-        <Tab heading='My Voucher' />
+        <Tab heading='My Voucher'>
+          <OwnedVoucherList />
+        </Tab>
       </Tabs>
     )
   }

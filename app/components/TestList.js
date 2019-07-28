@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Container, Header, Content, List, ListItem, Text, Right, Left, View, H1, H2, H3 } from 'native-base'
+import { Content, List, ListItem, Text, H2, H3 } from 'native-base'
 import { withNavigation } from 'react-navigation'
-import { FontAwesome } from '@expo/vector-icons'
 
 import TestListItem from './TestListItem'
 

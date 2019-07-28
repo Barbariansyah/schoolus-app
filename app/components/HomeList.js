@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Header, Content, List, ListItem, Text, Right, Left, Button } from 'native-base'
+import { Content, List, ListItem, Text, Right, Left } from 'native-base'
 import { FontAwesome } from '@expo/vector-icons'
 import { withNavigation } from 'react-navigation'
 
@@ -9,7 +9,10 @@ class HomeList extends Component {
       <>
         <Content>
           <List>
-            <ListItem button onPress={() => this.props.navigation.navigate('MyReport')}>
+            <ListItem
+              button
+              onPress={() => this.props.navigation.navigate('MyReport')}
+            >
               <Left>
                 <Text>My Report Card</Text>
               </Left>
@@ -17,7 +20,10 @@ class HomeList extends Component {
                 <FontAwesome name='chevron-right' />
               </Right>
             </ListItem>
-            <ListItem button onPress={() => this.props.navigation.navigate('MyExams')}>
+            <ListItem
+              button
+              onPress={() => this.props.navigation.navigate('MyExams')}
+            >
               <Left>
                 <Text>My Exams</Text>
               </Left>
@@ -25,7 +31,10 @@ class HomeList extends Component {
                 <FontAwesome name='chevron-right' />
               </Right>
             </ListItem>
-            <ListItem button onPress={() => this.props.navigation.navigate('MyQuizes')}>
+            <ListItem
+              button
+              onPress={() => this.props.navigation.navigate('MyQuizes')}
+            >
               <Left>
                 <Text>My Quizes</Text>
               </Left>

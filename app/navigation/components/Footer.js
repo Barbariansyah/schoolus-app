@@ -1,9 +1,8 @@
 import React from 'react'
 import { Footer, FooterTab, Button, Icon, Text } from 'native-base'
-import { withNavigation } from 'react-navigation'
 
 const BottomNavbar = ({ navigation }) => {
-  const route = navigation.state.routeName
+  const route = navigation.state.routes[navigation.state.index].routeName
 
   return (
     <Footer>
@@ -37,4 +36,4 @@ const BottomNavbar = ({ navigation }) => {
   )
 }
 
-export default withNavigation(BottomNavbar)
+export default BottomNavbar
