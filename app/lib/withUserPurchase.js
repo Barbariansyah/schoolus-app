@@ -21,7 +21,11 @@ export default WrappedComponent => {
 
     render() {
       return (
-        <Query query={GET_SHOP_USER} variables={{ id: this.state.userId }}>
+        <Query
+          query={GET_SHOP_USER}
+          variables={{ id: this.state.userId }}
+          pollInterval={5000}
+        >
           {({ loading, error, data }) => {
             if (loading) return <Text>Loading ...</Text>
             if (error) return <Text>Error! {error.message}</Text>

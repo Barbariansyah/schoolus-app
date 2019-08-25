@@ -26,3 +26,12 @@ export const GET_SHOP_USER = gql`
     }
   }
 `
+
+export const AUTH_USER = gql`
+  query authUser($user_name: String!, $password: String!) {
+    authUser(user_name: $user_name, password: $password) {
+      token
+      expires_in
+    }
+  }
+`

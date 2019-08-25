@@ -1,15 +1,33 @@
 import React, { Component } from 'react'
 import { AsyncStorage, Image, View } from 'react-native'
-import { Content, Button, Text, Item, Label, Input, Form } from 'native-base'
+import { Content, Button, Text, Item, Input, Form } from 'native-base'
+import { graphql } from 'react-apollo'
 
-import Base from './template/Base'
+import { AUTH_USER } from '../queries/user'
 
-export default class Login extends Component {
+class Login extends Component {
   static navigationOptions = {
     header: null
   }
 
+  state = {
+    username: '',
+    password: ''
+  }
+
   signIn = async () => {
+    console.log(this.props)
+    try {
+      const data = await this.props.authUser.refetch({
+        variables: {
+          user_name: this.state.username,
+          password: this.state.password
+        }
+      })
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
     await AsyncStorage.setItem(
       'userToken',
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZDNiY2Y2YmFiYmY2MjJmZmQxNjA2MjkiLCJ1c2VyTmFtZSI6InRlc3Q0NTYiLCJpYXQiOjE1NjQyNDQ2MzMsImV4cCI6MTU2NjgzNjYzM30.JQLLVMghvRFCmwrs1A8EoiztfWypCPzqbCGF6cWVsDA'
@@ -19,6 +37,8 @@ export default class Login extends Component {
   }
 
   render() {
+    const { username, password } = this.state
+
     return (
       <Content style={{ backgroundColor: '#007aff' }}>
         <View
@@ -43,7 +63,11 @@ export default class Login extends Component {
               paddingHorizontal: 10
             }}
           >
-            <Input placeholder='Username' />
+            <Input
+              placeholder='Username'
+              value={username}
+              onChangeText={text => this.setState({ username: text })}
+            />
           </Item>
           <Item
             rounded
@@ -53,7 +77,12 @@ export default class Login extends Component {
               paddingHorizontal: 10
             }}
           >
-            <Input secureTextEntry={true} placeholder='Password' />
+            <Input
+              secureTextEntry={true}
+              placeholder='Password'
+              value={password}
+              onChangeText={text => this.setState({ password: text })}
+            />
           </Item>
           <Button
             primary
@@ -71,3 +100,5 @@ export default class Login extends Component {
     )
   }
 }
+
+export default graphql(AUTH_USER, { name: 'authUser' })(Login)
